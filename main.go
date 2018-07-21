@@ -13,12 +13,10 @@ type Repos struct {
 }
 
 func main() {
-
+	var repos []Repos
 	res, _ := http.Get("http://www.mocky.io/v2/5b52fd522f0000510d3bb683")
-
 	body, _ := ioutil.ReadAll(res.Body)
 
-	var repos []Repos
 	err := json.Unmarshal(body, &repos)
 	if err != nil {
 		fmt.Println("There was an error:", err)
